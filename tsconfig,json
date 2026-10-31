@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {    
+    "noImplicitAny": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "ES2020",    
+    "allowJs": true,
+    "isolatedModules": true,
+
+
+    "noEmit": true,
+    "sourceMap": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+  }
+}

@@ -1,0 +1,15 @@
+
+> NewsJS@1.0.0 build
+> cross-env TS_NODE_PROJECT=tsconfig.node.json webpack --mode production
+
+assets by status 2.1 KiB [1m[32m[cached][39m[22m 2 assets
+[1m./src/index.ts[39m[22m 39 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m [1m[31m[1 error][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/index.ts[39m[22m
+[1mModule build [1m[31mfailed[39m[22m[1m (from ./node_modules/ts-loader/index.js):
+[1m[31mError[39m[22m[1m: TypeScript emitted no output for C:\Users\admin\Documents\GitHub\news-JS\src\index.ts.
+    at makeSourceMapAndFinish (C:\Users\admin\Documents\GitHub\news-JS\node_modules\ts-loader\dist\index.js:98:18)
+    at successLoader (C:\Users\admin\Documents\GitHub\news-JS\node_modules\ts-loader\dist\index.js:85:5)
+    at Object.loader (C:\Users\admin\Documents\GitHub\news-JS\node_modules\ts-loader\dist\index.js:66:5)[39m[22m
+
+webpack 5.90.1 compiled with [1m[31m1 error[39m[22m in 4409 ms

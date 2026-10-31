@@ -41,7 +41,12 @@ const baseConfig: Configuration = {
 
 export default ({ mode }: { mode: string }): Configuration => {
     const isProductionMode = mode === 'production';
-    const envConfig = isProductionMode ? require('./webpack.prod.config') : require('./webpack.dev.config');
+
+    const envModule = isProductionMode
+    ? require('./webpack.prod.config')
+    : require('./webpack.dev.config');
+
+    const envConfig = envModule.default ?? envModule;
 
     return merge(baseConfig, envConfig);
 };

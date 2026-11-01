@@ -63,7 +63,7 @@ class News {
             newsContainer.innerHTML = '';
             newsContainer.appendChild(fragment);
         } else {
-            console.error('Контейнер .news не найден в DOM.');
+            console.error('Container .news is not found in DOM.');
         }
     }
 }

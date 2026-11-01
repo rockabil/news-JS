@@ -1,5 +1,5 @@
 import { IRequestOptions, IRequestParams } from '../../types/news-api';
-import { ApiEndpoint } from './controller';
+import { ApiEndpoint } from '../../types/api-endpoint';
 
 interface IApiOptions {
     apiKey: string;

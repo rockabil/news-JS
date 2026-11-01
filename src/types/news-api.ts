@@ -1,4 +1,4 @@
-import { ApiEndpoint } from "../components/controller/controller";
+import { ApiEndpoint } from "./api-endpoint";
 
 export interface IArticle {
     source: {

@@ -1,5 +1,10 @@
 import AppLoader from './appLoader';
 
+export enum ApiEndpoint {
+    Sources = 'sources',
+    Everything = 'everything',
+}
+
 class AppController extends AppLoader {
     getSources(callback) {
         super.getResp(

@@ -1,3 +1,4 @@
+
 class Loader {
     constructor(baseLink, options) {
         this.baseLink = baseLink;

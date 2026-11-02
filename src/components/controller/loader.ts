@@ -17,7 +17,7 @@ class Loader {
         this.options = options;
     }
 
-    getResp<T>(
+    public getResp<T>(
         { endpoint, options = {} }: IRequestParams,
         callback: ApiCallback<T> = () => {
             console.error('No callback for GET response');
@@ -36,18 +36,21 @@ class Loader {
         return res;
     }
 
-    private makeUrl(options: IRequestOptions, endpoint: ApiEndpoint): string {
-        const urlOptions = { ...this.options, ...options } as { [key: string]: string };
-        let url = `${this.baseLink}${endpoint}?`;
+    private makeUrl(options: Partial<IRequestOptions>, endpoint: ApiEndpoint): string {
+        const params = new URLSearchParams();
 
-        Object.keys(urlOptions).forEach((key) => {
-            const value = urlOptions[key];
+        const merged: Record<string, string | number | boolean | undefined> = {
+            ...this.options,
+            ...options,
+        };
+
+        Object.entries(merged).forEach(([key, value]) => {
             if (value !== undefined && value !== null) {
-                url += `${key}=${urlOptions[key]}&`;
+                params.append(key, String(value));
             }
         });
 
-        return url.slice(0, -1);
+        return `${this.baseLink}${endpoint}?${params.toString()}`;
     }
 
     private load<T>(

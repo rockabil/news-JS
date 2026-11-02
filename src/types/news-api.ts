@@ -1,10 +1,10 @@
 import { ApiEndpoint } from './api-endpoint';
 
 export interface IArticle {
-    source: {
+    source: Readonly<{
         id: string | null;
         name: string;
-    };
+    }>;
     author: string | null;
     title: string;
     description: string | null;
@@ -34,9 +34,14 @@ export interface ISource {
 
 export interface IRequestOptions {
     sources?: string;
+    pageSize?: number;
+    page?: number;
+    q?: string;
 }
 
 export interface IRequestParams {
     endpoint: ApiEndpoint;
     options?: IRequestOptions;
 }
+
+export type IArticlePreview = Pick<IArticle, 'title' | 'description' | 'url' | 'urlToImage'>;

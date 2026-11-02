@@ -5,6 +5,8 @@ import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import DotenvWebpackPlugin from 'dotenv-webpack';
 import type { Configuration } from 'webpack';
 
+import devConfig from './webpack.dev.config';
+import prodConfig from './webpack.prod.config';
 
 const baseConfig: Configuration = {
     entry: path.resolve(__dirname, './src/index.ts'),
@@ -41,12 +43,5 @@ const baseConfig: Configuration = {
 
 export default ({ mode }: { mode: string }): Configuration => {
     const isProductionMode = mode === 'production';
-
-    const envModule = isProductionMode
-    ? require('./webpack.prod.config')
-    : require('./webpack.dev.config');
-
-    const envConfig = envModule.default ?? envModule;
-
-    return merge(baseConfig, envConfig);
+    return merge(baseConfig, isProductionMode ? prodConfig : devConfig);
 };

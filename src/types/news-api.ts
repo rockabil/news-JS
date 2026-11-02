@@ -1,4 +1,4 @@
-import { ApiEndpoint } from "./api-endpoint";
+import { ApiEndpoint } from './api-endpoint';
 
 export interface IArticle {
     source: {

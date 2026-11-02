@@ -11,12 +11,11 @@ class News {
             console.error('Template #newsItemTemp is not found DOM.');
             return;
         }
-        console.log(news)
+        console.log(news);
 
         news.forEach((item: IArticle, idx: number) => {
             const newsClone = newsItemTemp.content.cloneNode(true) as DocumentFragment;
             const newsItemElement = newsClone.querySelector('.news__item');
-
 
             if (newsItemElement && idx % 2) {
                 newsItemElement.classList.add('alt');
@@ -36,13 +35,9 @@ class News {
                 metaAuthorEl.textContent = item.author || item.source.name;
             }
             if (metaDateEl) {
-                metaDateEl.textContent = item.publishedAt
-                    .slice(0, 10)
-                    .split('-')
-                    .reverse()
-                    .join('-');
+                metaDateEl.textContent = item.publishedAt.slice(0, 10).split('-').reverse().join('-');
             }
-              if (descTitleEl) {
+            if (descTitleEl) {
                 descTitleEl.textContent = item.title;
             }
             if (descSourceEl) {
@@ -59,7 +54,7 @@ class News {
         });
 
         const newsContainer: HTMLElement | null = document.querySelector('.news');
-         if (newsContainer) {
+        if (newsContainer) {
             newsContainer.innerHTML = '';
             newsContainer.appendChild(fragment);
         } else {

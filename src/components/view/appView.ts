@@ -3,7 +3,6 @@ import Sources from './sources/sources';
 import { IArticle, ISource } from '../../types/news-api';
 
 export class AppView {
-
     private news: News;
     private sources: Sources;
 
@@ -14,7 +13,7 @@ export class AppView {
 
     drawNews(data: { articles: IArticle[] }): void {
         const values: IArticle[] = data?.articles ? data?.articles : [];
-        console.log(values, data)
+        console.log(values, data);
         this.news.draw(values);
     }
 

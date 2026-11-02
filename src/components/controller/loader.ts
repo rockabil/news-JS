@@ -9,10 +9,8 @@ interface IApiOptions {
 type ApiCallback<T> = (data: T) => void;
 
 class Loader {
-
     private baseLink: string;
     private options: IApiOptions;
-
 
     constructor(baseLink: string, options: IApiOptions) {
         this.baseLink = baseLink;
@@ -60,7 +58,7 @@ class Loader {
     ): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler.bind(this))
-            .then((res) => res.json())
+            .then((res) => res.json() as Promise<T>)
             .then((data) => callback(data))
             .catch((err) => console.error(err));
     }
